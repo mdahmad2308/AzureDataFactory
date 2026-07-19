@@ -1,0 +1,25 @@
+{
+	"name": "SelectFilesTransformTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "SelectFiles_Transformation_Pipeline",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 2,
+				"startTime": "2026-06-20T10:32:00",
+				"endTime": "2026-06-20T10:35:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}

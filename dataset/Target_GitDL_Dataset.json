@@ -1,0 +1,25 @@
+{
+	"name": "Target_GitDL_Dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Target_LinkedServiceDL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Fact_Sales_2.csv",
+				"folderPath": "CSVFiles",
+				"fileSystem": "destination"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

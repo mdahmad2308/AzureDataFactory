@@ -1,0 +1,23 @@
+{
+	"name": "Github_Dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Github_LinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "mdahmad2308/AzureDataFactory/refs/heads/Source/Fact_Sales_2.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

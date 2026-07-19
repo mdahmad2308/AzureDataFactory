@@ -1,0 +1,24 @@
+{
+	"name": "ManagerTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "ManagerPipeline",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/source/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/2584d786-cc46-4600-9468-ef60fd1c9d8d/resourceGroups/ADF-ResourceGroup/providers/Microsoft.Storage/storageAccounts/adfdatalakeb04",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

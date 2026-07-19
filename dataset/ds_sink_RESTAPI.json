@@ -1,0 +1,21 @@
+{
+	"name": "ds_sink_RESTAPI",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sourcedatalakev2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "pokemon.json",
+				"folderPath": "API",
+				"fileSystem": "sink-v2"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,15 @@
+{
+	"name": "SnowflakeADFb04",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4bff9722-f0eb-4d2a-9a90-83e382fbf7f0",
+		"tenantId": "13a0054b-63b9-4b74-8ef7-f004c538e314"
+	}
+}

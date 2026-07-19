@@ -1,0 +1,81 @@
+{
+	"name": "First_dataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DF_Reporting_SDataset",
+						"type": "DatasetReference"
+					},
+					"name": "TransformCSV"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DFSinkREporting",
+						"type": "DatasetReference"
+					},
+					"name": "DFTransfromSink"
+				}
+			],
+			"transformations": [
+				{
+					"name": "DFselect"
+				},
+				{
+					"name": "DFderivedColumn"
+				},
+				{
+					"name": "DFfilter"
+				},
+				{
+					"name": "DFsplit"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          transaction_id as short,",
+				"          transactional_date as timestamp,",
+				"          product_id as string,",
+				"          customer_id as short,",
+				"          payment as string,",
+				"          credit_card as long,",
+				"          loyalty_card as boolean,",
+				"          cost as double,",
+				"          quantity as short,",
+				"          price as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> TransformCSV",
+				"TransformCSV select(mapColumn(",
+				"          transactional_date,",
+				"          product_id,",
+				"          customer_id,",
+				"          payment,",
+				"          loyalty_card,",
+				"          cost,",
+				"          quantity,",
+				"          price",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> DFselect",
+				"DFselect derive(payment = coalesce(payment,'NA')) ~> DFderivedColumn",
+				"DFderivedColumn filter(payment!='NA') ~> DFfilter",
+				"DFfilter split(payment=='visa',",
+				"     payment=='mastercard',",
+				"     disjoint: false) ~> DFsplit@(visa, mastercard, americanexpress)",
+				"DFsplit@visa sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> DFTransfromSink"
+			]
+		}
+	}
+}
