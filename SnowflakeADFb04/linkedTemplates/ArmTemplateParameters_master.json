@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "SnowflakeADFb04"
+		},
+		"Source_LinkedServiceDL_accountKey": {
+			"value": ""
+		},
+		"Target_LinkedServiceDL_accountKey": {
+			"value": ""
+		},
+		"ls_Snowflake_password": {
+			"value": ""
+		},
+		"ls_sourcedatalakev2_accountKey": {
+			"value": ""
+		},
+		"ls_sqldbv2_password": {
+			"value": ""
+		},
+		"Github_LinkedService_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com"
+		},
+		"Source_LinkedServiceDL_properties_typeProperties_url": {
+			"value": "https://adfdatalakeb04.dfs.core.windows.net/"
+		},
+		"Target_LinkedServiceDL_properties_typeProperties_url": {
+			"value": "https://adfdatalakeb04.dfs.core.windows.net/"
+		},
+		"ls_REST_properties_typeProperties_url": {
+			"value": "https://pokeapi.co/api/v2/pokemon"
+		},
+		"ls_Snowflake_properties_typeProperties_database": {
+			"value": "CORE_DB"
+		},
+		"ls_Snowflake_properties_typeProperties_role": {
+			"value": "ACCOUNTADMIN"
+		},
+		"ls_sourcedatalakev2_properties_typeProperties_url": {
+			"value": "https://adfdatalakeb04.dfs.core.windows.net/"
+		},
+		"ls_sqldbv2_properties_typeProperties_server": {
+			"value": "adf-proserver.database.windows.net"
+		},
+		"ls_sqldbv2_properties_typeProperties_database": {
+			"value": "adfprodb"
+		},
+		"ls_sqldbv2_properties_typeProperties_userName": {
+			"value": "adfadmin"
+		},
+		"ManagerTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/2584d786-cc46-4600-9468-ef60fd1c9d8d/resourceGroups/ADF-ResourceGroup/providers/Microsoft.Storage/storageAccounts/adfdatalakeb04"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

@@ -1,0 +1,174 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "SnowflakeADFb04"
+		},
+		"Source_LinkedServiceDL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Source_LinkedServiceDL'"
+		},
+		"Target_LinkedServiceDL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Target_LinkedServiceDL'"
+		},
+		"ls_Snowflake_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_Snowflake'"
+		},
+		"ls_sourcedatalakev2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_sourcedatalakev2'"
+		},
+		"ls_sqldbv2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_sqldbv2'"
+		},
+		"Github_LinkedService_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com"
+		},
+		"Source_LinkedServiceDL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adfdatalakeb04.dfs.core.windows.net/"
+		},
+		"Target_LinkedServiceDL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adfdatalakeb04.dfs.core.windows.net/"
+		},
+		"ls_REST_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://pokeapi.co/api/v2/pokemon"
+		},
+		"ls_Snowflake_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "CORE_DB"
+		},
+		"ls_Snowflake_properties_typeProperties_role": {
+			"type": "string",
+			"defaultValue": "ACCOUNTADMIN"
+		},
+		"ls_sourcedatalakev2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adfdatalakeb04.dfs.core.windows.net/"
+		},
+		"ls_sqldbv2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "adf-proserver.database.windows.net"
+		},
+		"ls_sqldbv2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "adfprodb"
+		},
+		"ls_sqldbv2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adfadmin"
+		},
+		"ManagerTrigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/2584d786-cc46-4600-9468-ef60fd1c9d8d/resourceGroups/ADF-ResourceGroup/providers/Microsoft.Storage/storageAccounts/adfdatalakeb04"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "SnowflakeADFb04_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Source_LinkedServiceDL_accountKey": {
+						"value": "[parameters('Source_LinkedServiceDL_accountKey')]"
+					},
+					"Target_LinkedServiceDL_accountKey": {
+						"value": "[parameters('Target_LinkedServiceDL_accountKey')]"
+					},
+					"ls_Snowflake_password": {
+						"value": "[parameters('ls_Snowflake_password')]"
+					},
+					"ls_sourcedatalakev2_accountKey": {
+						"value": "[parameters('ls_sourcedatalakev2_accountKey')]"
+					},
+					"ls_sqldbv2_password": {
+						"value": "[parameters('ls_sqldbv2_password')]"
+					},
+					"Github_LinkedService_properties_typeProperties_url": {
+						"value": "[parameters('Github_LinkedService_properties_typeProperties_url')]"
+					},
+					"Source_LinkedServiceDL_properties_typeProperties_url": {
+						"value": "[parameters('Source_LinkedServiceDL_properties_typeProperties_url')]"
+					},
+					"Target_LinkedServiceDL_properties_typeProperties_url": {
+						"value": "[parameters('Target_LinkedServiceDL_properties_typeProperties_url')]"
+					},
+					"ls_REST_properties_typeProperties_url": {
+						"value": "[parameters('ls_REST_properties_typeProperties_url')]"
+					},
+					"ls_Snowflake_properties_typeProperties_database": {
+						"value": "[parameters('ls_Snowflake_properties_typeProperties_database')]"
+					},
+					"ls_Snowflake_properties_typeProperties_role": {
+						"value": "[parameters('ls_Snowflake_properties_typeProperties_role')]"
+					},
+					"ls_sourcedatalakev2_properties_typeProperties_url": {
+						"value": "[parameters('ls_sourcedatalakev2_properties_typeProperties_url')]"
+					},
+					"ls_sqldbv2_properties_typeProperties_server": {
+						"value": "[parameters('ls_sqldbv2_properties_typeProperties_server')]"
+					},
+					"ls_sqldbv2_properties_typeProperties_database": {
+						"value": "[parameters('ls_sqldbv2_properties_typeProperties_database')]"
+					},
+					"ls_sqldbv2_properties_typeProperties_userName": {
+						"value": "[parameters('ls_sqldbv2_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "SnowflakeADFb04_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ManagerTrigger_properties_typeProperties_scope": {
+						"value": "[parameters('ManagerTrigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'SnowflakeADFb04_ArmTemplate_0')]"
+			]
+		}
+	]
+}
